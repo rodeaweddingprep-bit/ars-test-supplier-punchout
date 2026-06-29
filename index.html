@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ARS Supply Test Catalog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      background: #003b5c;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .container {
+      padding: 25px;
+    }
+
+    .product {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
+
+    .product h2 {
+      margin-top: 0;
+      color: #003b5c;
+    }
+
+    button {
+      background: #f15a24;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .cart {
+      background: #fff3e8;
+      border: 1px solid #f15a24;
+      padding: 18px;
+      border-radius: 8px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>ARS Supply Test Catalog</h1>
+    <p>Fake Supplier Punchout Demo</p>
+  </header>
+
+  <div class="container">
+    <h2>HVAC & Plumbing Supplies</h2>
+
+    <div class="product">
+      <h2>ARS-FLT-1625</h2>
+      <p>16x25 Pleated Air Filter</p>
+      <p><strong>Price:</strong> $9.42</p>
+      <button onclick="addToCart('ARS-FLT-1625 - 16x25 Pleated Air Filter - $9.42')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <h2>ARS-THERM-500</h2>
+      <p>Smart Thermostat</p>
+      <p><strong>Price:</strong> $249.00</p>
+      <button onclick="addToCart('ARS-THERM-500 - Smart Thermostat - $249.00')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <h2>ARS-COPPER-34</h2>
+      <p>3/4 Inch Copper Pipe</p>
+      <p><strong>Price:</strong> $18.99</p>
+      <button onclick="addToCart('ARS-COPPER-34 - 3/4 Inch Copper Pipe - $18.99')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <h2>ARS-RTU-5TON</h2>
+      <p>5 Ton Rooftop Unit</p>
+      <p><strong>Price:</strong> $6,850.00</p>
+      <button onclick="addToCart('ARS-RTU-5TON - 5 Ton Rooftop Unit - $6850.00')">Add to Cart</button>
+    </div>
+
+    <div class="cart">
+      <h2>Cart</h2>
+      <ul id="cartItems"></ul>
+      <button onclick="returnCart()">Return Cart to Coupa</button>
+      <p id="message"></p>
+    </div>
+  </div>
+
+  <script>
+    let cart = [];
+
+    function addToCart(item) {
+      cart.push(item);
+      displayCart();
+    }
+
+    function displayCart() {
+      const cartList = document.getElementById("cartItems");
+      cartList.innerHTML = "";
+
+      cart.forEach(function(item) {
+        const li = document.createElement("li");
+        li.textContent = item;
+        cartList.appendChild(li);
+      });
+    }
+
+    function returnCart() {
+      document.getElementById("message").innerText =
+        "Demo only: this is where the PunchOutOrderMessage cXML would return to Coupa.";
+    }
+  </script>
+</body>
+</html>
