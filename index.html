@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ARS Supply Test Catalog</title>
+  <title>ARS Supply Solutions</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -13,25 +13,121 @@
     header {
       background: #003b5c;
       color: white;
-      padding: 25px;
-      text-align: center;
+      padding: 20px 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .container {
-      padding: 25px;
+    header h1 {
+      margin: 0;
     }
 
-    .product {
+    .cart-header {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    nav {
+      background: #f15a24;
+      padding: 12px 35px;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav span {
+      margin-right: 25px;
+    }
+
+    .hero {
+      background: white;
+      padding: 30px 35px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .hero h2 {
+      color: #003b5c;
+      margin-bottom: 5px;
+    }
+
+    .search-box {
+      margin-top: 20px;
+    }
+
+    .search-box input {
+      padding: 12px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .main {
+      display: flex;
+      padding: 25px 35px;
+      gap: 25px;
+    }
+
+    .sidebar {
+      width: 220px;
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      height: fit-content;
+    }
+
+    .sidebar h3 {
+      color: #003b5c;
+      margin-top: 0;
+    }
+
+    .sidebar label {
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .products {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
       background: white;
       border: 1px solid #ddd;
       border-radius: 8px;
       padding: 18px;
-      margin-bottom: 15px;
+      text-align: center;
     }
 
-    .product h2 {
-      margin-top: 0;
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: contain;
+      background: #f7f7f7;
+      border-radius: 6px;
+    }
+
+    .product-card h3 {
       color: #003b5c;
+      margin-bottom: 5px;
+    }
+
+    .part {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 12px 0;
+    }
+
+    .stock {
+      color: green;
+      font-weight: bold;
     }
 
     button {
@@ -41,86 +137,200 @@
       padding: 10px 14px;
       border-radius: 5px;
       cursor: pointer;
+      font-weight: bold;
     }
 
-    .cart {
+    .cart-section {
       background: #fff3e8;
-      border: 1px solid #f15a24;
-      padding: 18px;
-      border-radius: 8px;
+      border-top: 3px solid #f15a24;
+      padding: 25px 35px;
+      margin-top: 20px;
+    }
+
+    .cart-section h2 {
+      color: #003b5c;
+    }
+
+    .cart-item {
+      background: white;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+
+    .return-message {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #003b5c;
+    }
+
+    footer {
+      background: #003b5c;
+      color: white;
+      text-align: center;
+      padding: 15px;
       margin-top: 25px;
     }
   </style>
 </head>
 
 <body>
+
   <header>
-    <h1>ARS Supply Test Catalog</h1>
-    <p>Fake Supplier Punchout Demo</p>
+    <div>
+      <h1>ARS Supply Solutions</h1>
+      <p>Commercial HVAC • Plumbing • Electrical</p>
+    </div>
+    <div class="cart-header">
+      🛒 Cart (<span id="cartCount">0</span>)
+    </div>
   </header>
 
-  <div class="container">
-    <h2>HVAC & Plumbing Supplies</h2>
+  <nav>
+    <span>Home</span>
+    <span>HVAC Equipment</span>
+    <span>Filters</span>
+    <span>Thermostats</span>
+    <span>Plumbing</span>
+    <span>Electrical</span>
+    <span>Contact</span>
+  </nav>
 
-    <div class="product">
-      <h2>ARS-FLT-1625</h2>
-      <p>16x25 Pleated Air Filter</p>
-      <p><strong>Price:</strong> $9.42</p>
-      <button onclick="addToCart('ARS-FLT-1625 - 16x25 Pleated Air Filter - $9.42')">Add to Cart</button>
-    </div>
+  <section class="hero">
+    <h2>Welcome to ARS Supply Solutions</h2>
+    <p>This is a mock supplier punchout catalog used for supplier enablement and training.</p>
 
-    <div class="product">
-      <h2>ARS-THERM-500</h2>
-      <p>Smart Thermostat</p>
-      <p><strong>Price:</strong> $249.00</p>
-      <button onclick="addToCart('ARS-THERM-500 - Smart Thermostat - $249.00')">Add to Cart</button>
+    <div class="search-box">
+      <input type="text" placeholder="Search by item, keyword, or part number">
+      <button>Search</button>
     </div>
+  </section>
 
-    <div class="product">
-      <h2>ARS-COPPER-34</h2>
-      <p>3/4 Inch Copper Pipe</p>
-      <p><strong>Price:</strong> $18.99</p>
-      <button onclick="addToCart('ARS-COPPER-34 - 3/4 Inch Copper Pipe - $18.99')">Add to Cart</button>
-    </div>
+  <div class="main">
 
-    <div class="product">
-      <h2>ARS-RTU-5TON</h2>
-      <p>5 Ton Rooftop Unit</p>
-      <p><strong>Price:</strong> $6,850.00</p>
-      <button onclick="addToCart('ARS-RTU-5TON - 5 Ton Rooftop Unit - $6850.00')">Add to Cart</button>
-    </div>
+    <aside class="sidebar">
+      <h3>Categories</h3>
+      <label><input type="checkbox" checked> HVAC Equipment</label>
+      <label><input type="checkbox" checked> Air Filters</label>
+      <label><input type="checkbox" checked> Thermostats</label>
+      <label><input type="checkbox" checked> Plumbing</label>
+      <label><input type="checkbox" checked> Electrical</label>
+      <label><input type="checkbox" checked> In Stock</label>
+    </aside>
 
-    <div class="cart">
-      <h2>Cart</h2>
-      <ul id="cartItems"></ul>
-      <button onclick="returnCart()">Return Cart to Coupa</button>
-      <p id="message"></p>
-    </div>
+    <section class="products">
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400">
+        <h3>16x25 Pleated Air Filter</h3>
+        <p class="part">Part #: ARS-FLT-1625</p>
+        <p>UNSPSC: 40161500</p>
+        <p class="stock">In Stock</p>
+        <p class="price">$9.42</p>
+        <button onclick="addToCart('ARS-FLT-1625', '16x25 Pleated Air Filter', 9.42)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400">
+        <h3>Smart Thermostat</h3>
+        <p class="part">Part #: ARS-THERM-500</p>
+        <p>UNSPSC: 41112209</p>
+        <p class="stock">In Stock</p>
+        <p class="price">$249.00</p>
+        <button onclick="addToCart('ARS-THERM-500', 'Smart Thermostat', 249.00)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400">
+        <h3>3/4 Inch Copper Pipe</h3>
+        <p class="part">Part #: ARS-COPPER-34</p>
+        <p>UNSPSC: 40171611</p>
+        <p class="stock">In Stock</p>
+        <p class="price">$18.99</p>
+        <button onclick="addToCart('ARS-COPPER-34', '3/4 Inch Copper Pipe', 18.99)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=400">
+        <h3>5 Ton Rooftop Unit</h3>
+        <p class="part">Part #: ARS-RTU-5TON</p>
+        <p>UNSPSC: 40101701</p>
+        <p class="stock">In Stock</p>
+        <p class="price">$6,850.00</p>
+        <button onclick="addToCart('ARS-RTU-5TON', '5 Ton Rooftop Unit', 6850.00)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=400">
+        <h3>60A Electrical Disconnect</h3>
+        <p class="part">Part #: ARS-DISCO-60</p>
+        <p>UNSPSC: 39121501</p>
+        <p class="stock">In Stock</p>
+        <p class="price">$42.00</p>
+        <button onclick="addToCart('ARS-DISCO-60', '60A Electrical Disconnect', 42.00)">Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?w=400">
+        <h3>1/2 HP Blower Motor</h3>
+        <p class="part">Part #: ARS-MOTOR-12</p>
+        <p>UNSPSC: 26101105</p>
+        <p class="stock">In Stock</p>
+        <p class="price">$149.00</p>
+        <button onclick="addToCart('ARS-MOTOR-12', '1/2 HP Blower Motor', 149.00)">Add to Cart</button>
+      </div>
+
+    </section>
   </div>
+
+  <section class="cart-section">
+    <h2>Shopping Cart</h2>
+    <div id="cartItems"></div>
+    <h3>Subtotal: $<span id="subtotal">0.00</span></h3>
+    <button onclick="returnCart()">Return Cart to Coupa</button>
+    <p class="return-message" id="returnMessage"></p>
+  </section>
+
+  <footer>
+    Demo Supplier Catalog | For Training Purposes Only
+  </footer>
 
   <script>
     let cart = [];
+    let subtotal = 0;
 
-    function addToCart(item) {
-      cart.push(item);
-      displayCart();
+    function addToCart(partNumber, description, price) {
+      cart.push({
+        partNumber: partNumber,
+        description: description,
+        price: price
+      });
+
+      subtotal += price;
+      updateCart();
     }
 
-    function displayCart() {
-      const cartList = document.getElementById("cartItems");
-      cartList.innerHTML = "";
+    function updateCart() {
+      document.getElementById("cartCount").innerText = cart.length;
+      document.getElementById("subtotal").innerText = subtotal.toFixed(2);
+
+      let cartItems = document.getElementById("cartItems");
+      cartItems.innerHTML = "";
 
       cart.forEach(function(item) {
-        const li = document.createElement("li");
-        li.textContent = item;
-        cartList.appendChild(li);
+        let div = document.createElement("div");
+        div.className = "cart-item";
+        div.innerHTML = "<strong>" + item.partNumber + "</strong> - " + item.description + " - $" + item.price.toFixed(2);
+        cartItems.appendChild(div);
       });
     }
 
     function returnCart() {
-      document.getElementById("message").innerText =
-        "Demo only: this is where the PunchOutOrderMessage cXML would return to Coupa.";
+      document.getElementById("returnMessage").innerText =
+        "Demo only: Your cart would now be returned to Coupa for requisition creation and approval.";
     }
   </script>
+
 </body>
 </html>
